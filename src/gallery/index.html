@@ -3,81 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script Gallery</title>
+    <title>Box Gallery</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div id="app">
-        <header>
-            <h1>Script Gallery</h1>
-            <input type="text" v-model="searchQuery" placeholder="Search scripts..." />
-        </header>
-        <nav>
-            <button v-for="language in languages" @click="filterByLanguage(language)">{{ language }}</button>
-        </nav>
-        <div class="grid">
-            <script-card
-                v-for="script in filteredScripts"
-                :key="script.id"
-                :title="script.title"
-                :language="script.language"
-                :code="script.code"
-                :metadata="script.metadata"
-            ></script-card>
-        </div>
-    </div>
-
-    <script type="text/x-template" id="script-card-template">
-        <div class="script-card">
-            <h2>{{ title }}</h2>
-            <pre><code class="language-{{ language }}">{{ code }}</code></pre>
-            <div class="metadata">
-                <p>{{ metadata }}</p>
-                <button @click="quickAction">Run</button>
-            </div>
-        </div>
-    </script>
-
-    <script>
-        Vue.component('script-card', {
-            template: '#script-card-template',
-            props: ['title', 'language', 'code', 'metadata'],
-            methods: {
-                quickAction() {
-                    console.log(`Running script: ${this.title}`);
-                }
-            }
-        });
-
-        const app = new Vue({
-            el: '#app',
-            data: {
-                searchQuery: '',
-                languages: ['JavaScript', 'Python', 'Ruby', 'Go'],
-                scripts: [
-                    { id: 1, title: 'Sample JS', language: 'javascript', code: 'console.log("Hello, World!");', metadata: 'JavaScript sample script' },
-                    { id: 2, title: 'Sample Python', language: 'python', code: 'print("Hello, World!")', metadata: 'Python sample script' },
-                    { id: 3, title: 'Sample Ruby', language: 'ruby', code: 'puts "Hello, World!"', metadata: 'Ruby sample script' },
-                    { id: 4, title: 'Sample Go', language: 'go', code: 'fmt.Println("Hello, World!")', metadata: 'Go sample script' },
-                ]
-            },
-            computed: {
-                filteredScripts() {
-                    return this.scripts.filter(script => {
-                        return script.title.toLowerCase().includes(this.searchQuery.toLowerCase());
-                    });
-                }
-            },
-            methods: {
-                filterByLanguage(language) {
-                    this.filteredScripts = this.scripts.filter(script => script.language === language);
-                }
-            }
-        });
-    </script>
+    <header>
+        <h1>Box Gallery</h1>
+        <input type="text" id="search" placeholder="Search..." />
+        <select id="languageFilter">
+            <option value="all">All Languages</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="bash">Bash</option>
+            <option value="go">Go</option>
+            <option value="ruby">Ruby</option>
+            <option value="php">PHP</option>
+            <option value="java">Java</option>
+            <option value="c">C</option>
+            <option value="c++">C++</option>
+            <option value="typescript">TypeScript</option>
+            <option value="sql">SQL</option>
+            <option value="yaml">YAML</option>
+            <option value="json">JSON</option>
+            <option value="xml">XML</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="rust">Rust</option>
+            <option value="kotlin">Kotlin</option>
+            <option value="swift">Swift</option>
+        </select>
+    </header>
+    <main id="gallery" class="grid">
+        <!-- Script cards will be dynamically generated here -->
+    </main>
+    <footer>
+        <p>&copy; 2026 Box Gallery</p>
+    </footer>
 </body>
 </html>
