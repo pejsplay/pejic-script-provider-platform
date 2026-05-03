@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilanguage Box Gallery UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <h1>Code Gallery</h1>
+        <input type="text" id="search" placeholder="Search...">
+        <div class="filter-options">
+            <label for="language-filter">Filter by Language:</label>
+            <select id="language-filter">
+                <option value="all">All</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="bash">Bash</option>
+                <option value="go">Go</option>
+                <option value="ruby">Ruby</option>
+                <option value="php">PHP</option>
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="typescript">TypeScript</option>
+                <option value="sql">SQL</option>
+                <option value="yaml">YAML</option>
+                <option value="json">JSON</option>
+                <option value="xml">XML</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="rust">Rust</option>
+                <option value="kotlin">Kotlin</option>
+                <option value="swift">Swift</option>
+            </select>
+        </div>
+        <div class="grid">
+            <!-- Script cards go here -->
+            <div class="script-card">
+                <h2 class="script-title">Script Title</h2>
+                <span class="namespace">Namespace</span>
+                <span class="status">Status</span>
+                <p class="description">Description of the script...</p>
+                <span class="tags">#tag1 #tag2</span>
+                <span class="metadata">Metadata information...</span>
+                <span class="language-badge">JavaScript</span>
+                <pre><code class="language-js">// JavaScript code snippet...</code></pre>
+                <div class="url-endpoint">URL Endpoint: <a href="#">https://api.endpoint</a></div>
+                <div class="actions">
+                    <button class="execute">Execute</button>
+                    <button class="edit">Edit</button>
+                    <button class="clone">Clone</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </div>
+            <!-- Additional script cards can be added similarly -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
